@@ -24,85 +24,100 @@
 
     const madLibsData = [
         {
-            id: 'hiking',
-            title: "Hayden's Hiking Hustle",
-            background: 'https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=1920',
-            words: {
-                VERB: ['arbitrage', 'flip'],
-                ADJECTIVE: ['ultralight'],
-                NOUN: ['hiking gear', 'tents'],
-                IMPORT_COSTS: ['duties and shipping and taxes'],
-                START_LOCATION: ['the States'],
-                ORIGIN: ['American'],
-                PRODUCT: ['cottage brand'],
-                TRAVEL_METHOD: ['go to Innisfil'],
-                SHIPPING_COST: ['20 bucks'],
-                SHIPPING_METHOD: ['Canada Post'],
-                SELLING_POINT: ['no tax no nothing'],
-                END_LOCATION: ['Canada']
-            }
-        },
-        {
-            id: 'spice',
+            id: "spice",
             title: "Dutch East India Company's Spice Spectacle",
-            background: 'https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=1920',
+            year: 1602,
+            background:
+                "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=1920",
             words: {
-                VERB: ['monopolize', 'corner'],
-                ADJECTIVE: ['exotic', 'rare'],
-                NOUN: ['spices', 'commodities'],
-                IMPORT_COSTS: ['tariffs and voyage fees'],
-                START_LOCATION: ['the Orient'],
-                ORIGIN: ['Indian'],
-                PRODUCT: ['colonial'],
-                TRAVEL_METHOD: ['sail'],
-                SHIPPING_COST: ['minimal'],
-                SHIPPING_METHOD: ['company fleet'],
-                SELLING_POINT: ['exclusive access'],
-                END_LOCATION: ['Europe']
-            }
+                VERB: ["monopolize", "corner"],
+                ADJECTIVE: ["exotic", "rare"],
+                NOUN: ["spices", "commodities"],
+                IMPORT_COSTS: ["tariffs and voyage fees"],
+                START_LOCATION: ["the Orient"],
+                ORIGIN: ["Indian"],
+                PRODUCT: ["colonial"],
+                TRAVEL_METHOD: ["sail"],
+                SHIPPING_COST: ["minimal"],
+                SHIPPING_METHOD: ["company fleet"],
+                SELLING_POINT: ["exclusive access"],
+                END_LOCATION: ["Europe"],
+            },
         },
         {
-            id: 'tea',
+            id: "tea",
             title: "Boston Tea Party's Harbor Hustle",
-            background: 'https://images.unsplash.com/photo-1716615240766-4f9eff8b5fda?w=1920',
+            year: 1773,
+            background:
+                "https://images.unsplash.com/photo-1716615240766-4f9eff8b5fda?w=1920",
             words: {
-                VERB: ['undercut', 'smuggle'],
-                ADJECTIVE: ['British', 'taxed'],
-                NOUN: ['tea', 'leaves'],
-                IMPORT_COSTS: ['import duties and crown taxes'],
-                START_LOCATION: ['England'],
-                ORIGIN: ['East India Company'],
-                PRODUCT: ['Ceylon'],
-                TRAVEL_METHOD: ['ship'],
-                SHIPPING_COST: ['duty-free'],
-                SHIPPING_METHOD: ['midnight run'],
-                SELLING_POINT: ['no stamps required'],
-                END_LOCATION: ['the Colonies']
-            }
-        }
+                VERB: ["undercut", "smuggle"],
+                ADJECTIVE: ["British", "taxed"],
+                NOUN: ["tea", "leaves"],
+                IMPORT_COSTS: ["import duties and crown taxes"],
+                START_LOCATION: ["England"],
+                ORIGIN: ["East India Company"],
+                PRODUCT: ["Ceylon"],
+                TRAVEL_METHOD: ["ship"],
+                SHIPPING_COST: ["duty-free"],
+                SHIPPING_METHOD: ["midnight run"],
+                SELLING_POINT: ["no stamps required"],
+                END_LOCATION: ["the Colonies"],
+            },
+        },
+        {
+            id: "hiking",
+            title: "Hayden's Hiking Hustle",
+            year: 2024,
+            background:
+                "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=1920",
+            words: {
+                VERB: ["arbitrage", "flip"],
+                ADJECTIVE: ["ultralight"],
+                NOUN: ["hiking gear", "tents"],
+                IMPORT_COSTS: ["duties and shipping and taxes"],
+                START_LOCATION: ["the States"],
+                ORIGIN: ["American"],
+                PRODUCT: ["cottage brand"],
+                TRAVEL_METHOD: ["go to Innisfil"],
+                SHIPPING_COST: ["20 bucks"],
+                SHIPPING_METHOD: ["Canada Post"],
+                SELLING_POINT: ["no tax no nothing"],
+                END_LOCATION: ["Canada"],
+            },
+        },
     ];
 
     // Debug: Log after madLibsData is defined
     console.log("madLibsData defined");
 
     const madLibTemplate = `I realized I have this unique way to [VERB] expensive [ADJECTIVE] [NOUN] because everybody pays [IMPORT_COSTS] to [END_LOCATION] for all of this [ORIGIN] [PRODUCT] stuff. I could just [TRAVEL_METHOD] with it and then ship it for [SHIPPING_COST] using [SHIPPING_METHOD] [SELLING_POINT] so I think I might be able to [VERB] [PRODUCT] from [START_LOCATION] in [END_LOCATION].`;
-    const Button = ({onClick, children, selected}) => (
+
+    const Title = () => (
+        <div className="text-center mb-6">
+            <h1 className="text-3xl font-bold">Arbitrage Through the Ages</h1>
+            <h2 className="text-xl text-gray-600 mt-2">A Mad Libs Adventure</h2>
+        </div>
+    );
+
+    const Button = ({onClick, children, selected, year}) => (
         <button
             onClick={onClick}
-            className={`px-4 py-2 rounded w-full ${
+            className={`h-24 px-4 py-2 rounded w-full ${
                 selected
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-blue-100 text-blue-600 hover:bg-blue-200'
-            } transition-colors duration-200`}
+                    ? "bg-blue-600 text-white"
+                    : "bg-blue-100 text-blue-600 hover:bg-blue-200"
+            }   transition-colors duration-200 flex flex-col justify-center items-center`}
         >
-            {children}
+            <div className="text-sm font-semibold w-full text-center">{children}</div>
+            <div className="text-xs mt-1">{year}</div>
         </button>
     );
 
     const MadLibWord = ({word, filled}) => (
-        <span className={`font-bold ${filled ? 'text-green-600' : 'text-blue-600'}`}>
-            [{word}]
-          </span>
+        <span className={`font-bold ${filled ? "text-green-600" : "text-blue-600"}`}>
+        [{word}]
+      </span>
     );
 
     const ArbitrageApp = () => {
@@ -112,7 +127,7 @@
         useEffect(() => {
             if (selectedLib) {
                 const newFilledWords = {};
-                Object.keys(selectedLib.words).forEach(key => {
+                Object.keys(selectedLib.words).forEach((key) => {
                     newFilledWords[key] = selectedLib.words[key][0];
                 });
                 setFilledWords(newFilledWords);
@@ -149,49 +164,52 @@
                             transition={{duration: 0.5}}
                             style={{
                                 backgroundImage: `url(${selectedLib.background})`,
-                                backgroundSize: 'cover',
-                                backgroundPosition: 'center',
+                                backgroundSize: "cover",
+                                backgroundPosition: "center",
                             }}
                             className="fixed inset-0 z-0"
                         />
                     )}
                 </AnimatePresence>
                 <div className="z-10 bg-white bg-opacity-90 p-6 rounded-lg shadow-xl max-w-2xl w-full">
-                    <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-center">
-                        Arbitrage Through the Ages: A Mad Libs Adventure
-                    </h1>
+                    <Title/>
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-6">
                         <Button onClick={() => setSelectedLib(null)} selected={!selectedLib}>
                             Reset
                         </Button>
-                        {madLibsData.map(lib => (
+                        {madLibsData.map((lib) => (
                             <Button
                                 key={lib.id}
                                 onClick={() => setSelectedLib(lib)}
                                 selected={selectedLib?.id === lib.id}
+                                year={lib.year}
                             >
                                 {lib.title}
                             </Button>
                         ))}
                     </div>
-                    <p className="text-base sm:text-lg leading-relaxed mb-6">{renderMadLib()}</p>
+                    <p className="text-base sm:text-lg leading-relaxed mb-6">
+                        {renderMadLib()}
+                    </p>
                     {selectedLib && (
                         <div className="mt-6">
                             <h2 className="text-xl font-semibold mb-4">Word Choices:</h2>
                             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                                 {Object.entries(selectedLib.words).map(([key, words]) => (
                                     <div key={key} className="mb-2">
-                                        <span className="font-medium">{key}:</span>{' '}
+                                        <span className="font-medium">{key}:</span>{" "}
                                         <div className="flex flex-wrap gap-1 mt-1">
                                             {words.map((word) => (
                                                 <button
                                                     key={word}
-                                                    onClick={() => setFilledWords(prev => ({...prev, [key]: word}))}
+                                                    onClick={() =>
+                                                        setFilledWords((prev) => ({...prev, [key]: word}))
+                                                    }
                                                     className={`px-2 py-1 rounded text-sm ${
                                                         filledWords[key] === word
-                                                            ? 'bg-green-600 text-white'
-                                                            : 'bg-green-100 text-green-600 hover:bg-green-200'
-                                                    } transition-colors duration-200`}
+                                                            ? "bg-green-600 text-white"
+                                                            : "bg-green-100 text-green-600 hover:bg-green-200"
+                                                    }              transition-colors duration-200`}
                                                 >
                                                     {word}
                                                 </button>
@@ -213,10 +231,11 @@
     // Debug: Log before ReactDOM.render
     console.log("About to render");
 
-    ReactDOM.render(<ArbitrageApp/>, document.getElementById('root'));
+    ReactDOM.render(<ArbitrageApp/>, document.getElementById("root"));
 
     // Debug: Log after ReactDOM.render
     console.log("Render complete");
+
 </script>
 </body>
 </html>
