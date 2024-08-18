@@ -30,19 +30,21 @@
             background:
                 "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=1920",
             words: {
-                VERB: ["monopolize", "corner"],
-                ADJECTIVE: ["exotic", "rare"],
-                NOUN: ["spices", "commodities"],
-                IMPORT_COSTS: ["tariffs and voyage fees"],
-                START_LOCATION: ["the Orient"],
-                ORIGIN: ["Indian"],
-                PRODUCT: ["colonial"],
-                TRAVEL_METHOD: ["sail"],
-                SHIPPING_COST: ["minimal"],
-                SHIPPING_METHOD: ["company fleet"],
-                SELLING_POINT: ["exclusive access"],
-                END_LOCATION: ["Europe"],
-            },
+                VERB: ['monopolize', 'corner'],
+                ADJECTIVE: ['exotic', 'rare'],
+                NOUN: ['spices', 'commodities'],
+                PEOPLE: ['everyone', 'every merchant'],
+                COSTS: ['tariffs and voyage fees'],
+                DESTINATION: ['Europe'],
+                ORIGIN: ['Indian', 'Oriental'],
+                PRODUCT: ['colonial goods'],
+                TRAVEL_METHOD: ['sail'],
+                ACTION: ['sell'],
+                PRICE: ['a premium'],
+                METHOD: ['our own fleet'],
+                ADVANTAGE: ['with exclusive trade rights'],
+                SOURCE: ['the East Indies']
+            }
         },
         {
             id: "tea",
@@ -51,19 +53,21 @@
             background:
                 "https://images.unsplash.com/photo-1716615240766-4f9eff8b5fda?w=1920",
             words: {
-                VERB: ["undercut", "smuggle"],
-                ADJECTIVE: ["British", "taxed"],
-                NOUN: ["tea", "leaves"],
-                IMPORT_COSTS: ["import duties and crown taxes"],
-                START_LOCATION: ["England"],
-                ORIGIN: ["East India Company"],
-                PRODUCT: ["Ceylon"],
-                TRAVEL_METHOD: ["ship"],
-                SHIPPING_COST: ["duty-free"],
-                SHIPPING_METHOD: ["midnight run"],
-                SELLING_POINT: ["no stamps required"],
-                END_LOCATION: ["the Colonies"],
-            },
+                VERB: ['undercut', 'smuggle'],
+                ADJECTIVE: ['British', 'taxed'],
+                NOUN: ['tea', 'leaves'],
+                PEOPLE: ['every colonist'],
+                COSTS: ['import duties and crown taxes'],
+                DESTINATION: ['the Colonies'],
+                ORIGIN: ['East India Company'],
+                PRODUCT: ['monopoly tea'],
+                TRAVEL_METHOD: ['sail'],
+                ACTION: ['distribute'],
+                PRICE: ['a fraction of the cost'],
+                METHOD: ['covert networks'],
+                ADVANTAGE: ['without paying any taxes'],
+                SOURCE: ['England']
+            }
         },
         {
             id: "hiking",
@@ -72,26 +76,72 @@
             background:
                 "https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=1920",
             words: {
-                VERB: ["arbitrage", "flip"],
-                ADJECTIVE: ["ultralight"],
-                NOUN: ["hiking gear", "tents"],
-                IMPORT_COSTS: ["duties and shipping and taxes"],
-                START_LOCATION: ["the States"],
-                ORIGIN: ["American"],
-                PRODUCT: ["cottage brand"],
-                TRAVEL_METHOD: ["go to Innisfil"],
-                SHIPPING_COST: ["20 bucks"],
-                SHIPPING_METHOD: ["Canada Post"],
-                SELLING_POINT: ["no tax no nothing"],
-                END_LOCATION: ["Canada"],
-            },
+                VERB: ['arbitrage', 'flip'],
+                ADJECTIVE: ['ultralight', 'high-end'],
+                NOUN: ['hiking gear', 'tents'],
+                PEOPLE: ['everybody'],
+                COSTS: ['duties and shipping and taxes'],
+                DESTINATION: ['Canada'],
+                ORIGIN: ['American'],
+                PRODUCT: ['cottage brand'],
+                TRAVEL_METHOD: ['go to Innisfil'],
+                ACTION: ['ship'],
+                PRICE: ['20 bucks'],
+                METHOD: ['Canada Post'],
+                ADVANTAGE: ['no tax no nothing'],
+                SOURCE: ['the States']
+            }
         },
+        {
+            id: 'sunscreen',
+            title: "Douglas's Biore Bonanza",
+            year: 2024,
+            background: 'https://images.unsplash.com/photo-1526481280693-3bfa7568e0f3?w=1920',
+            words: {
+                VERB: ['import', 'resell'],
+                ADJECTIVE: ['Japanese', 'advanced'],
+                NOUN: ['sunscreen', 'skincare'],
+                PEOPLE: ['every skincare enthusiast'],
+                COSTS: ['import fees and shipping'],
+                DESTINATION: ['the USA'],
+                ORIGIN: ['Japanese'],
+                PRODUCT: ['Biore UV'],
+                TRAVEL_METHOD: ['fly to Tokyo'],
+                ACTION: ['list'],
+                PRICE: ['double the retail price'],
+                METHOD: ['online marketplaces'],
+                ADVANTAGE: ['bypassing official distributors'],
+                SOURCE: ['Japan']
+            }
+        },
+        {
+            id: 'totebags',
+            title: "Kitty's Trader Joe's Tote Triumph",
+            year: 2024,
+            background: 'https://images.unsplash.com/photo-1612819052787-618023ea329f?w=1920',
+            words: {
+                VERB: ['export', 'flip'],
+                ADJECTIVE: ['trendy', 'collectible'],
+                NOUN: ['tote bags', 'accessories'],
+                PEOPLE: ['every fashion-forward shopper'],
+                COSTS: ['international shipping and customs'],
+                DESTINATION: ['China'],
+                ORIGIN: ['American'],
+                PRODUCT: ['Trader Joe\'s'],
+                TRAVEL_METHOD: ['visit every Trader Joe\'s in town'],
+                ACTION: ['sell'],
+                PRICE: ['ten times the original cost'],
+                METHOD: ['WeChat and Taobao'],
+                ADVANTAGE: ['exploiting the brand\'s unavailability'],
+                SOURCE: ['the States']
+            }
+        }
     ];
 
     // Debug: Log after madLibsData is defined
     console.log("madLibsData defined");
 
-    const madLibTemplate = `I realized I have this unique way to [VERB] expensive [ADJECTIVE] [NOUN] because everybody pays [IMPORT_COSTS] to [END_LOCATION] for all of this [ORIGIN] [PRODUCT] stuff. I could just [TRAVEL_METHOD] with it and then ship it for [SHIPPING_COST] using [SHIPPING_METHOD] [SELLING_POINT] so I think I might be able to [VERB] [PRODUCT] from [START_LOCATION] in [END_LOCATION].`;
+    const madLibTemplate = `I realized I have this unique way to [VERB] expensive [ADJECTIVE] [NOUN] because [PEOPLE] pays [COSTS] to [DESTINATION] for all of this [ORIGIN] [PRODUCT] stuff. I could just [TRAVEL_METHOD] with it and then [ACTION] it for [PRICE] using [METHOD] [ADVANTAGE]. So I think I might be able to [VERB] discounted [NOUN] from [SOURCE] in [DESTINATION].`;
 
     const Title = () => (
         <div className="text-center mb-6">
